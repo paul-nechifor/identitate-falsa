@@ -1,7 +1,7 @@
 moment = require 'moment'
 
 main = ->
-  $.getJSON "s/data.json", (data) ->
+  $.getJSON window.staticPath + '/data.json', (data) ->
     generator = new Generator data
     page = new Page generator
     page.setup()
@@ -87,7 +87,7 @@ Persoana::adresaNoua = ->
   sc = String.fromCharCode 65 + randInt(0, 1)
   et = randInt 1, 6
   ap = et * 3 + randInt 0, 3
-  @adresaMica = str + " nr. " + nr + ", bl. " + bl + ", sc. " + sc + ", et. " + et + ", ap. " + ap
+  @adresaMica = "#{str} nr. #{nr}, bl. #{bl}, sc. #{sc}, et. #{et}, ap. #{ap}"
 
 Persoana::avatarNou = ->
   @avatar = (Math.random() * @generator.nrAvatare) | 0
@@ -102,10 +102,10 @@ Persoana::getVarsta = ->
   moment().diff moment(@dataNasterii), "years"
 
 Persoana::getAdresa = ->
-  @adresaMica + " cod poștal " + @codPostal + ", " + @localitate + ", " + @judetSector
+  "#{@adresaMica}, cod poștal #{@codPostal}, #{@localitate}, #{@judetSector}"
 
 Persoana::getAvatar = ->
-  "s/avatare/" + @avatar + ".jpg"
+  window.staticPath + "/avatare/" + @avatar + ".jpg"
 
 Page = (generator) ->
   @persoana = new Persoana generator

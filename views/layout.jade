@@ -46,3 +46,6 @@ block content
               button.btn.btn-default(type='button')
                 span.glyphicon.glyphicon-repeat
       +resetBtn()
+
+block scripts
+  script window.staticPath = !{JSON.stringify(app.paths.static)};

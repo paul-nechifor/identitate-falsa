@@ -1,6 +1,6 @@
 {
   "name": "identitate-falsa",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Paul Nechifor <paul@nechifor.net> (http://nechifor.net/)",
   "scripts": {
     "build": "intercessor",
