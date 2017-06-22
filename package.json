@@ -1,7 +1,7 @@
 {
   "name": "identitate-falsa",
   "version": "1.0.0",
-  "description": "Text generator similar to Lorem Ipsum, but with Romanian letters.",
+  "description": "Plausible fake identity generator (in Romanian).",
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.0.0",
