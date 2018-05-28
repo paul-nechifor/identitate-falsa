@@ -19,7 +19,11 @@ doctype html
 html(lang='ro')
   head
     meta(charset='utf-8')
+    meta(http-equiv='x-ua-compatible', content='ie=edge')
     title Identitate falsă
+    meta(name='viewport', content='width=device-width,initial-scale=1')
+    meta(name='description', content='Generează identități false.')
+    link(rel='apple-touch-icon', href='/favicon152.png')
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700|Open+Sans+Condensed:300,300italic,700&subset=latin,latin-ext')
     link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
     style: :stylus(compress=true)
@@ -66,12 +70,15 @@ html(lang='ro')
       header
         margin 0 0 25px 0
 
-      footer
-        margin-top 45px
-        padding-bottom 10px
-        text-align center
+      .footer
         font-size 16px
-        padding-top 10px
+        margin-top 45px
+        padding 1em 0
+        text-align center
+        small
+          color #999
+          a
+            color #888
 
       /* Devices with big screens. */
       @media only screen and (min-width: 768px)
@@ -142,8 +149,15 @@ html(lang='ro')
       +resetBtn()
     // googleon: all
 
-    footer
-      p.text-center Creat de <a href='/'>Paul Nechifor</a>.
+    .footer
+      :markdown-it
+        Creat de [Paul Nechifor](/). [Vezi sursa Git.](https://github.com/paul-nechifor/identitate-falsa)
+
+      small: :markdown-it
+        [Prima pagină](/) •
+        [Blog](/blog) •
+        [Proiecte](/projects) •
+        [Twitter](https://twitter.com/PaulNechifor)
 
     script(src='//code.jquery.com/jquery-1.10.2.min.js')
     script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
