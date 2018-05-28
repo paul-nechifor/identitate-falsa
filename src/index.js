@@ -1,5 +1,3 @@
-import moment from 'moment';
-
 let main = () =>
   $.getJSON('data.json', function(data) {
     let generator = new Generator(data);
@@ -7,6 +5,8 @@ let main = () =>
     page.setup();
   })
 ;
+
+const YEAR = 365 * 24 * 60 * 60 * 1000;
 
 var Generator = function(data) {
   this.familie = new ChoicePool(data.familie);
@@ -72,7 +72,7 @@ Persoana.prototype.numeNou = function(propaga) {
 
 Persoana.prototype.dataNasteriiNoua = function(propaga) {
   let varsta = 18.3 + (Math.random() * 22);
-  let varstaMilli = varsta * 365 * 24 * 60 * 60 * 1000;
+  let varstaMilli = varsta * YEAR;
   return this.dataNasterii = new Date(Date.now() - varstaMilli);
 };
 
@@ -114,11 +114,14 @@ Persoana.prototype.getSex = function() {
 };
 
 Persoana.prototype.getDataNasterii = function() {
-  return moment(this.dataNasterii).format("DD.MM.YYYY");
+  const d = this.dataNasterii;
+  const pad = (x) => x < 10 ? '0' + x : x;
+  return `${pad(d.getDate())}.${pad(d.getMonth())}.${d.getFullYear()}`;
 };
 
 Persoana.prototype.getVarsta = function() {
-  return moment().diff(moment(this.dataNasterii), "years");
+  const d = (Date.now() - this.dataNasterii) / YEAR;
+  return (d | 0) + '';
 };
 
 Persoana.prototype.getAdresa = function() {

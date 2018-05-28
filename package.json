@@ -36,7 +36,5 @@
   },
   "private": true,
   "homepage": "https://github.com/paul-nechifor/identitate-falsa#readme",
-  "dependencies": {
-    "moment": "~2.8.3"
-  }
+  "dependencies": {}
 }
