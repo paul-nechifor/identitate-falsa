@@ -1,3 +1,7 @@
+# This repository has been moved to [gitlab.com/paul-nechifor/identitate-falsa](http://gitlab.com/paul-nechifor/identitate-falsa).
+
+Old readme:
+
 # Fake Identity
 
 Plausible fake identity generator (in Romanian).
